@@ -16,7 +16,7 @@ export class HealthController {
     }
 
     return {
-      nest: 'ok',
+      nest: 'ok v2',
       spring: springStatus,
     };
   }
