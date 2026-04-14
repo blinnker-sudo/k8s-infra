@@ -6,6 +6,10 @@ on:
     paths:
       - 'apps/nest-api/**'
 
+concurrency:
+  group: git-push
+  cancel-in-progress: false
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -42,5 +46,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add helm/nest-api/values-dev.yaml
-          git diff --staged --quiet || git commit -m "ci: update nest-api image to ${{ github.sha }}"
+          git diff --staged --quiet && exit 0
+          git commit -m "ci: update nest-api image to ${{ github.sha }}"
+          git pull --rebase origin main
           git push
