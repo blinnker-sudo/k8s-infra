@@ -1,0 +1,15 @@
+replicaCount: 3
+
+image:
+  tag: latest
+
+ingress:
+  enabled: true
+  host: nest.local
+
+config:
+  SPRING_API_URL: "http://spring-api"
+  LOG_LEVEL: "warn"
+
+secrets:
+  API_TOKEN: "prod-super-secreto-789"

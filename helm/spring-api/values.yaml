@@ -1,0 +1,22 @@
+# Valores por defecto (los sobreescriben values-dev.yaml y values-prod.yaml)
+replicaCount: 1
+
+image:
+  repository: ghcr.io/blinnker-sudo/spring-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: false
+  host: spring.local
+
+config:
+  LOG_LEVEL: "INFO"
+
+secrets:
+  DB_PASSWORD: "cambiar-en-cada-ambiente"

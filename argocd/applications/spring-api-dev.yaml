@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spring-api-dev
+  namespace: argocd
+spec:
+  project: default
+
+  # Fuente: el repo de GitHub
+  source:
+    repoURL: https://github.com/blinnker-sudo/k8s-infra.git
+    targetRevision: HEAD
+    path: helm/spring-api
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+
+  # Destino: el cluster + namespace
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+
+  # Política de sincronización
+  syncPolicy:
+    automated:
+      selfHeal: true        # Si alguien cambia algo manualmente, ArgoCD lo revierte
+      prune: true           # Borra recursos que ya no están en Git
+    syncOptions:
+      - CreateNamespace=true  # Crea el namespace si no existe

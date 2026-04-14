@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  tag: latest
+
+ingress:
+  enabled: true
+  host: spring-dev.local
+
+config:
+  LOG_LEVEL: "DEBUG"
+  DB_HOST: "dev-db.local"
+  DB_NAME: "mydb_dev"
+
+secrets:
+  DB_PASSWORD: "dev-password-123"

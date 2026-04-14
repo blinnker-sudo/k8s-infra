@@ -1,0 +1,19 @@
+# NestJS
+node_modules/
+dist/
+*.log
+
+# Spring Boot / Gradle
+build/
+.gradle/
+*.class
+*.jar
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

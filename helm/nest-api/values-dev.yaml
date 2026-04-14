@@ -1,0 +1,15 @@
+replicaCount: 1
+
+image:
+  tag: latest
+
+ingress:
+  enabled: true
+  host: nest-dev.local
+
+config:
+  SPRING_API_URL: "http://spring-api"
+  LOG_LEVEL: "debug"
+
+secrets:
+  API_TOKEN: "dev-token-123"

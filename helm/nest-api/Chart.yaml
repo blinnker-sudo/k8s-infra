@@ -1,0 +1,4 @@
+apiVersion: v2
+name: nest-api
+description: Helm chart para la API de NestJS
+version: 1.0.0

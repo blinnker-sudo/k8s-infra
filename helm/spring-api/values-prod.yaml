@@ -1,0 +1,16 @@
+replicaCount: 3
+
+image:
+  tag: latest
+
+ingress:
+  enabled: true
+  host: spring.local
+
+config:
+  LOG_LEVEL: "WARN"
+  DB_HOST: "prod-db.local"
+  DB_NAME: "mydb_prod"
+
+secrets:
+  DB_PASSWORD: "prod-super-secreto-789"
